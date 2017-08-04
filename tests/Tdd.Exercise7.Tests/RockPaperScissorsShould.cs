@@ -7,7 +7,7 @@ namespace Tdd.Exercise7.Tests
     [TestFixture]
     public class RockPaperScissorsShould
     {
-        private Round _round;
+        private GameRound _gameRound;
         private RockPaperScissors _game;
         private IPlayer _player1;
         private IPlayer _player2;
@@ -15,8 +15,8 @@ namespace Tdd.Exercise7.Tests
         [SetUp]
         public void SetUp()
         {
-            _round = new Round();
-            _game = new RockPaperScissors(_round);
+            _gameRound = new GameRound();
+            _game = new RockPaperScissors(_gameRound);
 
             _player1 = Substitute.For<IPlayer>();
             _player2 = Substitute.For<IPlayer>();

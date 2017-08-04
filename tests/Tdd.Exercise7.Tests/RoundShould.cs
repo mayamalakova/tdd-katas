@@ -8,14 +8,14 @@ namespace Tdd.Exercise7.Tests
     [TestFixture]
     public class RoundShould
     {
-        private Round _round;
+        private GameRound _gameRound;
         private IPlayer _player1;
         private IPlayer _player2;
 
         [SetUp]
         public void SetUp()
         {
-            _round = new Round();
+            _gameRound = new GameRound();
             _player1 = Substitute.For<IPlayer>();
             _player2 = Substitute.For<IPlayer>();
         }
@@ -25,7 +25,7 @@ namespace Tdd.Exercise7.Tests
         {
             _player1.RevealHand().Returns(Hand.Paper);
             _player2.RevealHand().Returns(Hand.Scissors);
-            var winner = _round.Play(_player1, _player2);
+            var winner = _gameRound.Play(_player1, _player2);
             winner.ShouldBe(Winner.Player2);
         }
         [Test]
@@ -33,7 +33,7 @@ namespace Tdd.Exercise7.Tests
         {
             _player1.RevealHand().Returns(Hand.Paper);
             _player2.RevealHand().Returns(Hand.Rock);
-            var winner = _round.Play(_player1, _player2);
+            var winner = _gameRound.Play(_player1, _player2);
             winner.ShouldBe(Winner.Player1);
         }
 
@@ -42,7 +42,7 @@ namespace Tdd.Exercise7.Tests
         {
             _player1.RevealHand().Returns(Hand.Rock);
             _player2.RevealHand().Returns(Hand.Scissors);
-            var winner = _round.Play(_player1, _player2);
+            var winner = _gameRound.Play(_player1, _player2);
             winner.ShouldBe(Winner.Player1);
         }
 
@@ -51,7 +51,7 @@ namespace Tdd.Exercise7.Tests
         {
             _player1.RevealHand().Returns(Hand.Rock);
             _player2.RevealHand().Returns(Hand.Rock);
-            var winner = _round.Play(_player1, _player2);
+            var winner = _gameRound.Play(_player1, _player2);
             winner.ShouldBe(Winner.None);
         }
     }

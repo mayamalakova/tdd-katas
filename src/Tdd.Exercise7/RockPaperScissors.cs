@@ -5,11 +5,11 @@ namespace Tdd.Exercise7
 {
     public class RockPaperScissors
     {
-        private readonly Round _round;
+        private readonly GameRound _gameRound;
 
-        public RockPaperScissors(Round round)
+        public RockPaperScissors(GameRound gameRound)
         {
-            _round = round;
+            _gameRound = gameRound;
         }
 
         public GameResult Play(IPlayer player1, IPlayer player2)
@@ -26,7 +26,7 @@ namespace Tdd.Exercise7
             {
                 roundCount++;
 
-                var winner = _round.Play(player1, player2);
+                var winner = _gameRound.Play(player1, player2);
                 if (winner == Winner.Player1)
                     wins[player1]++;
                 else if (winner == Winner.Player2)
