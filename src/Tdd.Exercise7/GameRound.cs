@@ -1,7 +1,16 @@
-﻿namespace Tdd.Exercise7
+﻿using System.Collections.Generic;
+
+namespace Tdd.Exercise7
 {
     public class GameRound
     {
+        private readonly Dictionary<Hand, Hand> winningHand = new Dictionary<Hand, Hand>
+        {
+            {Hand.Scissors, Hand.Paper},
+            {Hand.Paper, Hand.Rock},
+            {Hand.Rock, Hand.Scissors},
+        };
+
         public Winner Play(IPlayer player1, IPlayer player2)
         {
             var hand1 = player1.RevealHand();
@@ -22,19 +31,7 @@
 
         private bool IsWinningHand(Hand you, Hand competition)
         {
-            if (you == Hand.Paper && competition == Hand.Rock)
-            {
-                return true;
-            }
-            if (you == Hand.Rock && competition == Hand.Scissors)
-            {
-                return true;
-            }
-            if (you == Hand.Scissors && competition == Hand.Paper)
-            {
-                return true;
-            }
-            return false;
+            return winningHand[you] == competition;
         }
     }
 }
