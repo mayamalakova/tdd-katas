@@ -4,7 +4,7 @@ namespace Tdd.Exercise7
 {
     public class GameRound
     {
-        private readonly Dictionary<Hand, Hand> winningHand = new Dictionary<Hand, Hand>
+        private static readonly Dictionary<Hand, Hand> WinningHand = new Dictionary<Hand, Hand>
         {
             {Hand.Scissors, Hand.Paper},
             {Hand.Paper, Hand.Rock},
@@ -29,9 +29,9 @@ namespace Tdd.Exercise7
             return Winner.Player2;
         }
 
-        private bool IsWinningHand(Hand you, Hand competition)
+        private static bool IsWinningHand(Hand you, Hand competition)
         {
-            return winningHand[you] == competition;
+            return WinningHand[you] == competition;
         }
     }
 }
