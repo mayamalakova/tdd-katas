@@ -5,10 +5,10 @@ using Shouldly;
 namespace Tdd.Exercise7.Tests
 {
     [TestFixture]
-    public class RockPaperScissorsGameShould
+    public class RockPaperScissorsShould
     {
         private Round _round;
-        private RockPaperScissorsGame _game;
+        private RockPaperScissors _game;
         private IPlayer _player1;
         private IPlayer _player2;
 
@@ -16,7 +16,7 @@ namespace Tdd.Exercise7.Tests
         public void SetUp()
         {
             _round = new Round();
-            _game = new RockPaperScissorsGame(_round);
+            _game = new RockPaperScissors(_round);
 
             _player1 = Substitute.For<IPlayer>();
             _player2 = Substitute.For<IPlayer>();

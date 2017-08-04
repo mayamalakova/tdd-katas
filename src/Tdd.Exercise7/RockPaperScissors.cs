@@ -3,11 +3,11 @@ using System.Linq;
 
 namespace Tdd.Exercise7
 {
-    public class RockPaperScissorsGame
+    public class RockPaperScissors
     {
         private readonly Round _round;
 
-        public RockPaperScissorsGame(Round round)
+        public RockPaperScissors(Round round)
         {
             _round = round;
         }
