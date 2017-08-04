@@ -31,11 +31,13 @@ namespace Tdd.Exercise7.Tests
             winner.ShouldBe(expectedWinner);
         }
 
-        [Test]
-        public void Decide_same_hands_are_a_draw()
+        [TestCase(Hand.Scissors)]
+        [TestCase(Hand.Rock)]
+        [TestCase(Hand.Paper)]
+        public void Decide_same_hands_are_a_draw(Hand hand)
         {
-            player1.RevealHand().Returns(Hand.Rock);
-            player2.RevealHand().Returns(Hand.Rock);
+            player1.RevealHand().Returns(hand);
+            player2.RevealHand().Returns(hand);
             var winner = gameRound.Play(player1, player2);
             winner.ShouldBe(Winner.None);
         }
