@@ -6,29 +6,16 @@
         {
             var hand1 = player1.RevealHand();
             var hand2 = player2.RevealHand();
-
+            
             switch (hand1)
             {
                 case Hand.Paper:
-                    if (hand2 == Hand.Scissors)
-                        return Winner.Player2;
-                    else if (hand2 == Hand.Rock)
-                        return Winner.Player1;
-                    break;
+                    return hand2 == Hand.Scissors ? Winner.Player2 : hand2 == Hand.Rock ? Winner.Player1 : Winner.None;
                 case Hand.Rock:
-                    if (hand2 == Hand.Paper)
-                        return Winner.Player2;
-                    else if (hand2 == Hand.Scissors)
-                        return Winner.Player1;
-                    break;
+                    return hand2 == Hand.Paper ? Winner.Player2 : hand2 == Hand.Scissors ? Winner.Player1 : Winner.None;
                 case Hand.Scissors:
-                    if (hand2 == Hand.Rock)
-                        return Winner.Player2;
-                    else if (hand2 == Hand.Paper)
-                        return Winner.Player1;
-                    break;
+                    return hand2 == Hand.Rock ? Winner.Player2 : hand2 == Hand.Paper ? Winner.Player1 : Winner.None;
             }
-
             return Winner.None;
         }
     }
