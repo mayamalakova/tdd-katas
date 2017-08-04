@@ -21,8 +21,11 @@ namespace Tdd.Exercise7.Tests
         }
 
         [TestCase(Hand.Paper, Hand.Scissors, Winner.Player2)]
+        [TestCase(Hand.Rock, Hand.Paper, Winner.Player2)]
+        [TestCase(Hand.Scissors, Hand.Rock, Winner.Player2)]
         [TestCase(Hand.Paper, Hand.Rock, Winner.Player1)]
         [TestCase(Hand.Rock, Hand.Scissors, Winner.Player1)]
+        [TestCase(Hand.Scissors, Hand.Paper, Winner.Player1)]
         public void Decide_winning_hand(Hand hand1, Hand hand2, Winner expectedWinner)
         {
             player1.RevealHand().Returns(hand1);
